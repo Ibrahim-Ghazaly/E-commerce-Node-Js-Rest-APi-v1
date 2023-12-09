@@ -6,6 +6,7 @@ const cors = require("cors")
 const compression = require('compression')
 const ApiError = require('./utlis/apiError')
 const dbConnection = require('./config/database')
+const {webhookCheckout} = require('./controllers/order.controller')
 
 
 
@@ -33,6 +34,14 @@ app.options('*',cors());
 
 // compress all responses
 app.use(compression())
+
+// Checkout webhook
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webhookCheckout
+);
+
 
 //middellwares
 app.use(express.json());
