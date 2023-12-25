@@ -20,7 +20,6 @@ class ApiFeatures {
         this.mongoseQuery = this.mongoseQuery.find(JSON.parse(queryStr));
 
         return this;
-      
      }
 
      sort(){

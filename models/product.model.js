@@ -112,4 +112,6 @@ productSchema.virtual('reviews',{
         });
         next();
       });
-    module.exports = mongoose.model('Product', productSchema);
+
+      
+module.exports = mongoose.model('Product', productSchema);

@@ -84,7 +84,6 @@ exports.getAll = (Model, modelName = '') =>
     const { mongoseQuery, paginationResult } = apiFeatures;
     const documents = await mongoseQuery;
 
-    res
-      .status(200)
-      .json({ results: documents.length, paginationResult, data: documents });
+    res.status(200).json({ results: documents.length, paginationResult, data: documents });
+    
   });

@@ -13,6 +13,7 @@ const globalError = (error, req, res, next) => {
   if (process.env.NODE_ENV === "development") {
     sendErrorForDev(res, error);
   } else {
+    
     if(error.name === "JsonWebTokenError") error = handleJwtInvalidSignature();
     if(error.name === "TokenExpiredError") error = handleJwtExpired();
 

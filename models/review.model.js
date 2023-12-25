@@ -8,7 +8,6 @@ const reviewSchema =mongoose.Schema({
         min:[1,"Min ratings value is 1.0"],
         max:[5,"Max ratings value is 5.0"],
         required:[true,'review ratings are required']
-
     },
     user:{
         type:mongoose.Schema.ObjectId,
@@ -36,7 +35,7 @@ reviewSchema.statics.calcAverageRatingsAndQuantity = async function(productId){
     //stage 1 : get all reviews in specific product 
     {$match:{product:productId}},
 
-   // Stage 2: Grouping reviews based on productID and calc avgRatings, ratingsQuantity
+   // Stage 2: Grouping reviews based on productID and ca lc avgRatings, ratingsQuantity
 
     {$group:{
         _id:'product',
@@ -70,3 +69,4 @@ reviewSchema.post('deleteOne',{document: true, query: false },async function(){
 
 
 module.exports = mongoose.model('Review',reviewSchema);
+ 
